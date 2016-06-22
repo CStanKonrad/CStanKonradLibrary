@@ -1,0 +1,2 @@
+# CStanKonradLibrary
+C++ library
