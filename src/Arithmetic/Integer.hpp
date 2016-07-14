@@ -40,17 +40,17 @@ namespace CSKL
 	typedef long long digit_type;
 
 	template <typename T>
-	int numberLength(T _number)	//number of digits in number
+	int numberLength(T number_)	//number of digits in number
 	{
-		if (_number == 0)
+		if (number_ == 0)
 			return 1;
 		else
 		{
 			int result = 0;
-			while (_number != 0)
+			while (number_ != 0)
 			{
 				++result;
-				_number /= 10;
+				number_ /= 10;
 			}
 			return result;
 		}
@@ -63,103 +63,103 @@ namespace CSKL
 		bool isNegative = false;
 		digit_type DIGIT_BASE = 1000000000;
 		digit_type DIGIT_SIZE = 9;
-		
-		void multiplyByDigit(digit_type _digit);
-		void divideByDigit(digit_type _digit);
-		
-		std::string convertDigitToString(const digit_type _digit) const;
-		
+
+		void multiplyByDigit(digit_type digit_);
+		void divideByDigit(digit_type digit_);
+
+		std::string convertDigitToString(const digit_type digit_) const;
+
 		void fixMinus0();
 		void cutLeadingZeros();
-		void subtractAbs(const CInteger &_num); // treats numbers like positive integers
-		
+		void subtractAbs(const CInteger &num_); // treats numbers like positive integers
+
 	public:
 		/* Constructors */
-		
+
 		CInteger();
-		CInteger(long long _val);
-		CInteger(const CInteger &_num);
-		CInteger(const std::string &_num);
-		
+		CInteger(long long val_);
+		CInteger(const CInteger &num_);
+		CInteger(const std::string &num_);
+
 		/* end of Constructors */
-	
-	
+
+
 		/* Utility */
-		
-		/* O(log(10^9, _val) */
-		void assign(long long _val);
-		
-		/* O(_num.size()) */
-		void assign(const std::string &_num);
-		
-		/* O(log(10^9, _num) */
-		void assign(const CInteger &_num);
-		
-		
-		
-		/* O(log(10^9, _num) */
-		void add(const CInteger &_num);
-		
-		/* O(log(10^9, _num)*O(log(10^9, *this) */
-		void multiply(const CInteger &_num);
-		
-		/* O(log(2, 10^9)*O(log(10^9, _num)*(O(log(10^9, *this) - O(log(10^9, _num) */
-		void divide(const CInteger &_num);
-		
-		
+
+		/* O(log(10^9, val_) */
+		void assign(long long val_);
+
+		/* O(num_.size()) */
+		void assign(const std::string &num_);
+
+		/* O(log(10^9, num_) */
+		void assign(const CInteger &num_);
+
+
+
+		/* O(log(10^9, num_) */
+		void add(const CInteger &num_);
+
+		/* O(log(10^9, num_)*O(log(10^9, *this) */
+		void multiply(const CInteger &num_);
+
+		/* O(log(2, 10^9)*O(log(10^9, num_)*(O(log(10^9, *this) - O(log(10^9, num_) */
+		void divide(const CInteger &num_);
+
+
 		/* end of Utility */
-		
-		
-		
+
+
+
 		/* Operators */
-		/* O(log(10^9, _num) */
-		bool operator == (const CInteger &_num) const;
-		
-		/* O(log(10^9, _num) */
-		bool operator != (const CInteger &_num) const;
-		
-		/* O(log(10^9, _num) */
-		bool operator < (const CInteger &_num) const;
-		
-		/* O(log(10^9, _num) */
-		bool operator <= (const CInteger &_num) const;
-		
-		/* O(log(10^9, _num) */
-		bool operator > (const CInteger &_num) const;
-		
-		/* O(log(10^9, _num) */
-		bool operator >= (const CInteger &_num) const;
-		
-		
-		
-		/* O(log(10^9, _num) */
-		CInteger operator+(const CInteger &_num) const;
-		
-		/* O(log(10^9, _num) */
-		CInteger operator-(const CInteger &_num) const;
-		
-		friend CInteger operator-(const CInteger &_num);
-		
-		/* O(log(10^9, _num)*O(log(10^9, *this) */
-		CInteger operator*(const CInteger &_num) const;
-		
-		/* O(log(2, 10^9)*O(log(10^9, _num)*(O(log(10^9, *this) - O(log(10^9, _num) */
-		CInteger operator/(const CInteger &_num) const;
-		
-		/* O(log(2, 10^9)*O(log(10^9, _num)*(O(log(10^9, *this) - O(log(10^9, _num) */
-		CInteger operator%(const CInteger &_num) const;
-		
+		/* O(log(10^9, num_) */
+		bool operator == (const CInteger &num_) const;
+
+		/* O(log(10^9, num_) */
+		bool operator != (const CInteger &num_) const;
+
+		/* O(log(10^9, num_) */
+		bool operator < (const CInteger &num_) const;
+
+		/* O(log(10^9, num_) */
+		bool operator <= (const CInteger &num_) const;
+
+		/* O(log(10^9, num_) */
+		bool operator > (const CInteger &num_) const;
+
+		/* O(log(10^9, num_) */
+		bool operator >= (const CInteger &num_) const;
+
+
+
+		/* O(log(10^9, num_) */
+		CInteger operator+(const CInteger &num_) const;
+
+		/* O(log(10^9, num_) */
+		CInteger operator-(const CInteger &num_) const;
+
+		friend CInteger operator-(const CInteger &num_);
+
+		/* O(log(10^9, num_)*O(log(10^9, *this) */
+		CInteger operator*(const CInteger &num_) const;
+
+		/* O(log(2, 10^9)*O(log(10^9, num_)*(O(log(10^9, *this) - O(log(10^9, num_) */
+		CInteger operator/(const CInteger &num_) const;
+
+		/* O(log(2, 10^9)*O(log(10^9, num_)*(O(log(10^9, *this) - O(log(10^9, num_) */
+		CInteger operator%(const CInteger &num_) const;
+
 		/* end of Operators */
-		
-		friend CInteger abs(CInteger _num);
-		
+
+		friend CInteger abs(CInteger num_);
+
 		/* O(returned_value.size() */
 		std::string toString() const;
-		friend std::ostream& operator<<(std::ostream &_os, const CInteger &_num);
-		
-		
-		
-		
+		friend std::ostream& operator<<(std::ostream &os_, const CInteger &num_);
+
+
+
+
 	};
 
 }

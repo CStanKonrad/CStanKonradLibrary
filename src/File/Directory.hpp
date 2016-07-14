@@ -39,8 +39,8 @@ namespace CSKL
 		dirent *dirElement = nullptr;
 	public:
 		/* throw string exception if directory can't be opened
-		 * throws "CFile::openDir: Can't open directory: _dirPath" */
-		void openDir(std::string _dirPath);  // for example "my/directory/" will enable browsing files from this directory
+		 * throws "CFile::openDir: Can't open directory: dirPath_" */
+		void openDir(std::string dirPath_);  // for example "my/directory/" will enable browsing files from this directory
 		void closeDir();
 
 		/* nextFile()
@@ -51,11 +51,11 @@ namespace CSKL
 	};
 
 	/* read characters to string while (next_character != new_line) and read new_line (but not to string) */
-	std::string readLine(std::ifstream &_in);
-	/* If no directory named _dir exists create one */
-	void createDir(std::string _dir);
-	/* copy content from _from to _toDir/_toFile */
-	void copyFile(std::string _from, std::string _toDir, std::string _toFile);
+	std::string readLine(std::ifstream &in_);
+	/* If no directory named dir_ exists create one */
+	void createDir(std::string dir_);
+	/* copy content from from_ to toDir_/toFile_ */
+	void copyFile(std::string from_, std::string toDir_, std::string toFile_);
 
 }
 #endif // CSTANKONRAD_SOLUTIONCHECKER_FILE_HPP_INCLUDED
