@@ -38,6 +38,11 @@ namespace CSKL
 		DIR *directory = nullptr;
 		dirent *dirElement = nullptr;
 	public:
+		~CFile()
+		{
+			if (directory != nullptr)
+				closeDir();
+		}
 		/* throw string exception if directory can't be opened
 		 * throws "CFile::openDir: Can't open directory: dirPath_" */
 		void openDir(std::string dirPath_);  // for example "my/directory/" will enable browsing files from this directory

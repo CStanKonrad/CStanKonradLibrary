@@ -39,6 +39,7 @@ namespace CSKL
 	void CFile::closeDir()
 	{
 		closedir(directory);
+		directory = nullptr;
 		return;
 	}
 
@@ -73,6 +74,7 @@ namespace CSKL
 		try
 		{
 			dir.openDir(dir_);
+			dir.closeDir();
 		}
 		catch (std::string _bug)
 		{
