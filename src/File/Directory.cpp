@@ -38,8 +38,11 @@ namespace CSKL
 
 	void CFile::closeDir()
 	{
-		closedir(directory);
-		directory = nullptr;
+		if (directory != nullptr)
+		{
+			closedir(directory);
+			directory = nullptr;
+		}
 		return;
 	}
 
